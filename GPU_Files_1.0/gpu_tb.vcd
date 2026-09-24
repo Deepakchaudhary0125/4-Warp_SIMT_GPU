@@ -1,0 +1,634 @@
+$date
+	Sun Sep  6 17:59:43 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module gpu_tb $end
+$var parameter 32 ! DATA_WIDTH $end
+$var parameter 32 " INST_WIDTH $end
+$var parameter 32 # MEM_DEPTH $end
+$var parameter 32 $ NO_LANES $end
+$var parameter 32 % NUM_WARPS $end
+$var parameter 32 & PC_WIDTH $end
+$var parameter 32 ' WARP_ID_WIDTH $end
+$var reg 1 ( clk $end
+$var reg 32 ) expected_result [31:0] $end
+$var reg 1 * rstn $end
+$scope module u_top $end
+$var wire 1 ( clk $end
+$var wire 1 + mem_write_enable $end
+$var wire 1 * rstn $end
+$var wire 1 , warp_id_broadcast $end
+$var wire 1 - selected_warp_id $end
+$var wire 32 . selected_pc [31:0] $end
+$var wire 5 / rs2_addr_broadcast [4:0] $end
+$var wire 5 0 rs1_addr_broadcast [4:0] $end
+$var wire 1 1 reg_write_enable_broadcast $end
+$var wire 5 2 rd_addr_broadcast [4:0] $end
+$var wire 32 3 raw_instruction [31:0] $end
+$var wire 1 4 pc_update_enable $end
+$var wire 32 5 new_pc_in [31:0] $end
+$var wire 32 6 lane_store_data [31:0] $end
+$var wire 32 7 lane_mem_addr [31:0] $end
+$var wire 32 8 lane_load_data [31:0] $end
+$var wire 1 9 is_branch_broadcast $end
+$var wire 32 : imem_addr [31:0] $end
+$var wire 4 ; alu_op_broadcast [3:0] $end
+$var parameter 32 < DATA_WIDTH $end
+$var parameter 32 = INST_WIDTH $end
+$var parameter 32 > MEM_DEPTH $end
+$var parameter 32 ? NO_LANES $end
+$var parameter 32 @ NUM_WARPS $end
+$var parameter 32 A PC_WIDTH $end
+$var parameter 32 B REGISTERS_PER_WARP $end
+$var parameter 32 C WARP_ID_WIDTH $end
+$var reg 1 D default_mask $end
+$scope module u_dmem $end
+$var wire 1 ( clk $end
+$var wire 1 + mem_write_enable $end
+$var wire 32 E lane_store_data [31:0] $end
+$var wire 32 F lane_mem_addr [31:0] $end
+$var parameter 32 G DATA_WIDTH $end
+$var parameter 32 H MEM_DEPTH $end
+$var parameter 32 I NO_LANES $end
+$var reg 32 J lane_load_data [31:0] $end
+$scope begin mem_lanes[0] $end
+$var parameter 2 K i $end
+$upscope $end
+$upscope $end
+$scope module u_fetch $end
+$var wire 1 ( clk $end
+$var wire 32 L imem_addr [31:0] $end
+$var wire 1 - selected_warp_id $end
+$var wire 32 M selected_pc [31:0] $end
+$var wire 32 N raw_instruction [31:0] $end
+$var parameter 32 O INST_WIDTH $end
+$var parameter 32 P PC_WIDTH $end
+$var parameter 32 Q WARP_ID_WIDTH $end
+$var reg 4 R alu_op_broadcast [3:0] $end
+$var reg 1 9 is_branch_broadcast $end
+$var reg 5 S rd_addr_broadcast [4:0] $end
+$var reg 1 1 reg_write_enable_broadcast $end
+$var reg 5 T rs1_addr_broadcast [4:0] $end
+$var reg 5 U rs2_addr_broadcast [4:0] $end
+$var reg 1 , warp_id_broadcast $end
+$upscope $end
+$scope module u_instmem $end
+$var wire 32 V addr [31:0] $end
+$var parameter 32 W INST_WIDTH $end
+$var parameter 32 X MEM_DEPTH $end
+$var parameter 32 Y PC_WIDTH $end
+$var reg 32 Z instruction [31:0] $end
+$upscope $end
+$scope module u_pc_update $end
+$var wire 32 [ branch_target [31:0] $end
+$var wire 1 \ instruction_valid $end
+$var wire 1 ] is_branch $end
+$var wire 32 ^ new_pc_in [31:0] $end
+$var wire 1 4 pc_update_enable $end
+$var wire 32 _ next_sequential_addr [31:0] $end
+$var wire 32 ` current_pc [31:0] $end
+$var parameter 32 a PC_WIDTH $end
+$upscope $end
+$scope module u_scheduler $end
+$var wire 1 ( clk $end
+$var wire 32 b new_pc_in [31:0] $end
+$var wire 1 4 pc_update_enable $end
+$var wire 1 * rstn $end
+$var wire 1 , write_warp_id $end
+$var parameter 32 c NUM_WARPS $end
+$var parameter 32 d PC_WIDTH $end
+$var parameter 32 e WARP_ID_WIDTH $end
+$var reg 1 f current_robin $end
+$var reg 32 g selected_pc [31:0] $end
+$var reg 1 - selected_warp_id $end
+$scope begin $unm_blk_15 $end
+$var integer 32 h i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module u_simt_core $end
+$var wire 4 i alu_op [3:0] $end
+$var wire 1 ( clk $end
+$var wire 32 j lane_load_data [31:0] $end
+$var wire 1 D lane_mask $end
+$var wire 5 k rd_addr [4:0] $end
+$var wire 1 1 reg_write_enable $end
+$var wire 5 l rs1_addr [4:0] $end
+$var wire 5 m rs2_addr [4:0] $end
+$var wire 1 * rstn $end
+$var wire 1 , warp_id $end
+$var wire 32 n lane_store_data [31:0] $end
+$var wire 32 o lane_mem_addr [31:0] $end
+$var parameter 32 p DATA_WIDTH $end
+$var parameter 32 q NO_LANES $end
+$var parameter 32 r NUM_WARPS $end
+$var parameter 32 s REGISTERS_PER_WARP $end
+$var parameter 32 t REG_ADDR_WIDTH $end
+$var parameter 32 u WARP_ID_WIDTH $end
+$scope begin lane[0] $end
+$var wire 32 v op1 [31:0] $end
+$var wire 32 w op2 [31:0] $end
+$var parameter 2 x i $end
+$var reg 32 y alu_result [31:0] $end
+$scope begin $ivl_for_loop2 $end
+$var integer 32 z warp_idx [31:0] $end
+$scope begin $ivl_for_loop3 $end
+$var integer 32 { reg_idx [31:0] $end
+$upscope $end
+$upscope $end
+$scope begin init_registers $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 | warp_idx [31:0] $end
+$scope begin $ivl_for_loop1 $end
+$var integer 32 } reg_idx [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b0 x
+b1 u
+b101 t
+b100000 s
+b10 r
+b1 q
+b100000 p
+b1 e
+b100000 d
+b10 c
+b100000 a
+b100000 Y
+b100000000 X
+b100000 W
+b1 Q
+b100000 P
+b100000 O
+b0 K
+b1 I
+b100000000 H
+b100000 G
+b1 C
+b100000 B
+b100000 A
+b10 @
+b1 ?
+b100000000 >
+b100000 =
+b100000 <
+b1 '
+b100000 &
+b10 %
+b1 $
+b100000000 #
+b100000 "
+b100000 !
+$end
+#0
+$dumpvars
+b100000 }
+b10 |
+b100000 {
+b10 z
+b0 y
+b0 w
+b0 v
+b0 o
+b0 n
+b11 m
+b10 l
+b0 k
+bx j
+b0 i
+b10 h
+b0 g
+0f
+b100 b
+b0 `
+b100 _
+b100 ^
+0]
+1\
+b0 [
+b10000110000000000000 Z
+b0 V
+b11 U
+b10 T
+b0 S
+b0 R
+b10000110000000000000 N
+b0 M
+b0 L
+bx J
+b0 F
+b0 E
+1D
+b0 ;
+b0 :
+09
+bx 8
+b0 7
+b0 6
+b100 5
+14
+b10000110000000000000 3
+b0 2
+11
+b10 0
+b11 /
+b0 .
+0-
+0,
+0+
+0*
+b0 )
+0(
+$end
+#5000
+b10 h
+b100000 {
+b10 z
+1(
+#10000
+0(
+#15000
+b10 h
+b100000 {
+b10 z
+1(
+#20000
+0(
+#25000
+b10 h
+b100000 {
+b10 z
+1(
+#30000
+0(
+#35000
+b10 h
+b100000 {
+b10 z
+1(
+#40000
+0(
+#45000
+b10 h
+b100000 {
+b10 z
+1(
+#50000
+0(
+1*
+#55000
+1,
+1-
+1f
+1(
+#60000
+0(
+#65000
+b1 2
+b1 S
+b1 k
+b1 ;
+b1 R
+b1 i
+b10000100010000110000000000000 3
+b10000100010000110000000000000 N
+b10000100010000110000000000000 Z
+0,
+b1000 5
+b1000 ^
+b1000 b
+b1000 _
+b100 :
+b100 L
+b100 V
+b100 .
+b100 M
+b100 `
+b100 g
+0-
+0f
+1(
+#70000
+0(
+#75000
+1,
+1-
+1f
+1(
+#80000
+0(
+#85000
+b10 2
+b10 S
+b10 k
+b10 ;
+b10 R
+b10 i
+b100001000010000110000000000000 3
+b100001000010000110000000000000 N
+b100001000010000110000000000000 Z
+0,
+b1100 5
+b1100 ^
+b1100 b
+b1100 _
+b1000 :
+b1000 L
+b1000 V
+b1000 .
+b1000 M
+b1000 `
+b1000 g
+0-
+0f
+1(
+#90000
+0(
+#95000
+1,
+1-
+1f
+1(
+#100000
+0(
+#105000
+b11 2
+b11 S
+b11 k
+b11 ;
+b11 R
+b11 i
+b110001100010000110000000000000 3
+b110001100010000110000000000000 N
+b110001100010000110000000000000 Z
+0,
+b10000 5
+b10000 ^
+b10000 b
+b10000 _
+b1100 :
+b1100 L
+b1100 V
+b1100 .
+b1100 M
+b1100 `
+b1100 g
+0-
+0f
+1(
+#110000
+0(
+#115000
+1,
+1-
+1f
+1(
+#120000
+0(
+#125000
+b100 2
+b100 S
+b100 k
+b100 ;
+b100 R
+b100 i
+b1000010000010000110000000000000 3
+b1000010000010000110000000000000 N
+b1000010000010000110000000000000 Z
+0,
+b10100 5
+b10100 ^
+b10100 b
+b10100 _
+b10000 :
+b10000 L
+b10000 V
+b10000 .
+b10000 M
+b10000 `
+b10000 g
+0-
+0f
+1(
+#130000
+0(
+#135000
+1,
+1-
+1f
+1(
+#140000
+0(
+#145000
+b101 2
+b101 S
+b101 k
+b101 ;
+b101 R
+b101 i
+b1010010100010000110000000000000 3
+b1010010100010000110000000000000 N
+b1010010100010000110000000000000 Z
+0,
+b11000 5
+b11000 ^
+b11000 b
+b11000 _
+b10100 :
+b10100 L
+b10100 V
+b10100 .
+b10100 M
+b10100 `
+b10100 g
+0-
+0f
+1(
+#150000
+0(
+#155000
+1,
+1-
+1f
+1(
+#160000
+0(
+#165000
+b110 2
+b110 S
+b110 k
+b110 ;
+b110 R
+b110 i
+b1100011000010000110000000000000 3
+b1100011000010000110000000000000 N
+b1100011000010000110000000000000 Z
+0,
+b11100 5
+b11100 ^
+b11100 b
+b11100 _
+b11000 :
+b11000 L
+b11000 V
+b11000 .
+b11000 M
+b11000 `
+b11000 g
+0-
+0f
+1(
+#170000
+0(
+#175000
+1,
+1-
+1f
+1(
+#180000
+0(
+#185000
+b11111111111111111111111111111111 y
+b11111111111111111111111111111111 )
+b111 2
+b111 S
+b111 k
+b111 ;
+b111 R
+b111 i
+b1110011100010000110000000000000 3
+b1110011100010000110000000000000 N
+b1110011100010000110000000000000 Z
+0,
+b100000 5
+b100000 ^
+b100000 b
+b100000 _
+b11100 :
+b11100 L
+b11100 V
+b11100 .
+b11100 M
+b11100 `
+b11100 g
+0-
+0f
+1(
+#190000
+0(
+#195000
+1,
+1-
+1f
+1(
+#200000
+0(
+#205000
+b0 )
+b0 y
+b1000 2
+b1000 S
+b1000 k
+b1000 ;
+b1000 R
+b1000 i
+b10000100000010000110000000000000 3
+b10000100000010000110000000000000 N
+b10000100000010000110000000000000 Z
+0,
+b100100 5
+b100100 ^
+b100100 b
+b100100 _
+b100000 :
+b100000 L
+b100000 V
+b100000 .
+b100000 M
+b100000 `
+b100000 g
+0-
+0f
+1(
+#210000
+0(
+#215000
+1,
+1-
+1f
+1(
+#220000
+0(
+#225000
+b1001 2
+b1001 S
+b1001 k
+b1001 ;
+b1001 R
+b1001 i
+b10010100100010000110000000000000 3
+b10010100100010000110000000000000 N
+b10010100100010000110000000000000 Z
+0,
+b101000 5
+b101000 ^
+b101000 b
+b101000 _
+b100100 :
+b100100 L
+b100100 V
+b100100 .
+b100100 M
+b100100 `
+b100100 g
+0-
+0f
+1(
+#230000
+0(
+#235000
+1,
+1-
+1f
+1(
+#240000
+0(
+#245000
+b1010 2
+b1010 S
+b1010 k
+b1010 ;
+b1010 R
+b1010 i
+b10100101000010000110000000000000 3
+b10100101000010000110000000000000 N
+b10100101000010000110000000000000 Z
+0,
+b101100 5
+b101100 ^
+b101100 b
+b101100 _
+b101000 :
+b101000 L
+b101000 V
+b101000 .
+b101000 M
+b101000 `
+b101000 g
+0-
+0f
+1(
+#250000
+0(

@@ -1,0 +1,18 @@
+00086000  // Op 0  (ADD):    Reg[0]  = Reg[2] + Reg[3]   (Rd = 0)
+10886000  // Op 1  (SUB):    Reg[1]  = Reg[2] - Reg[3]   (Rd = 1)
+21086000  // Op 2  (SLT):    Reg[2]  = (Reg[2] < Reg[3]) ? 1 : 0 (Rd = 2)
+31886000  // Op 3  (SLTU):   Reg[3]  = (Reg[2] < Reg[3]) ? 1 : 0 (Rd = 3)
+42086000  // Op 4  (AND):    Reg[4]  = Reg[2] & Reg[3]   (Rd = 4)
+52886000  // Op 5  (OR):     Reg[5]  = Reg[2] | Reg[3]   (Rd = 5)
+63086000  // Op 6  (XOR):    Reg[6]  = Reg[2] ^ Reg[3]   (Rd = 6)
+73886000  // Op 7  (NOR):    Reg[7]  = ~(Reg[2] | Reg[3]) (Rd = 7)
+84086000  // Op 8  (SLL):    Reg[8]  = Reg[2] << Reg[3]  (Rd = 8)
+94886000  // Op 9  (SRL):    Reg[9]  = Reg[2] >> Reg[3]  (Rd = 9)
+a5086000  // Op 10 (SRA):    Reg[10] = Reg[2] >>> Reg[3] (Rd = 10)
+b5886000  // Op 11 (SEQ):    Reg[11] = (Reg[2] == Reg[3]) ? 1 : 0 (Rd = 11)
+c6086000  // Op 12 (SNE):    Reg[12] = (Reg[2] != Reg[3]) ? 1 : 0 (Rd = 12)
+d6886000  // Op 13 (PASS_B): Reg[13] = Reg[3]           (Rd = 13)
+e7086000  // Op 14 (NOT):    Reg[14] = ~Reg[2]          (Rd = 14)
+f7886000  // Op 15 (ZERO):   Reg[15] = 0                (Rd = 15)
+
+// Format: [Opcode (4 bits)] [Rd (5 bits)] [Rs1 (5 bits)] [Rs2 (5 bits)] [Padding (13 bits)] 
