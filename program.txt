@@ -1,0 +1,18 @@
+00086000  // [00] ADD  R0,  R2, R3
+10886000  // [01] SUB  R1,  R2, R3
+21086000  // [02] SLT  R2,  R2, R3
+31886000  // [03] SLTU R3,  R2, R3
+42086000  // [04] AND  R4,  R2, R3
+52886000  // [05] OR   R5,  R2, R3
+63086000  // [06] XOR  R6,  R2, R3
+73886000  // [07] NOR  R7,  R2, R3
+84086000  // [08] SLL  R8,  R2, R3
+94886000  // [09] SRL  R9,  R2, R3
+a5086000  // [10] SRA  R10, R2, R3
+b5886000  // [11] SEQ  R11, R2, R3
+E2C80000   // SW R6, R5, +0   → Mem[R5 + 0] = R6
+D3C80000   // LW R7, R5, +0   → R7 = Mem[R5 + 0]
+FA540040  // [12] BEQ  R20, R21, +2  → even lanes jump to [14], odd fall to [13]
+00000000  // [13] NOP  (ADD R0,R0,R0) — path A: not-taken (odd lanes)
+10000000  // [14] SUB  R0, R0, R0    — path B: taken (even lanes)
+F0000000  // [15] BEQ  R0, R0, 0    — halt: self-loop forever

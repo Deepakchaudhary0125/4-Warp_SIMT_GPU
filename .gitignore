@@ -1,0 +1,10 @@
+sim_build/
+*.vvp
+*.vcd
+*.fst
+*.csv
+dump.txt
+.DS_Store
+*.swp
+*~
+temp_reg_file
